@@ -21,4 +21,10 @@ std::pair<int, int> terminalSize();
 void render(std::initializer_list<Drawable*> items);
 void render(const std::vector<Drawable*>& items);
 
+// Flush a pre-composed Buffer directly to the screen.
+// Use this when you need to draw custom decorations on top of widgets
+// (e.g. overlay buttons) before a single refresh().
+void flushBuffer(const Buffer& buf);
+void screenRefresh();  // call refresh() after one or more flushBuffer() calls
+
 } // namespace tui

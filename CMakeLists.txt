@@ -40,7 +40,7 @@ target_include_directories(tui PUBLIC
 target_link_libraries(tui PUBLIC ${NCURSESW_LIB})
 
 # ── Examples ────────────────────────────────────────────────────────────────
-foreach(EXAMPLE hello_world demo demo2 demo3 demo_mouse)
+foreach(EXAMPLE hello_world demo demo2 demo3 demo_mouse demo_mouse2)
     add_executable(${EXAMPLE} examples/${EXAMPLE}.cpp)
     target_link_libraries(${EXAMPLE} PRIVATE tui)
     set_target_properties(${EXAMPLE} PROPERTIES

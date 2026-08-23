@@ -81,7 +81,7 @@ std::pair<int, int> terminalSize() {
 }
 
 // Render a single Buffer to the ncurses virtual screen.
-static void flushBuffer(const Buffer& buf) {
+void flushBuffer(const Buffer& buf) {
     for (auto& [k, cell] : buf.cells()) {
         // Decode position from the key.
         int x = static_cast<int>(k >> 32);
@@ -115,6 +115,10 @@ void render(const std::vector<Drawable*>& items) {
 
 void render(std::initializer_list<Drawable*> items) {
     render(std::vector<Drawable*>(items));
+}
+
+void screenRefresh() {
+    refresh();
 }
 
 } // namespace tui
