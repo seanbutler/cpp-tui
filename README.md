@@ -1,4 +1,6 @@
-# tui-cpp
+# cpp-tui
+
+![cappa-tui-logo-via-ai.png](cappa-tui-logo-via-ai.png)
 
 A C++ port of [termui](https://github.com/gizak/termui) — a terminal UI library with a widget set, a buffer-based rendering model, and an event loop.
 
@@ -153,6 +155,8 @@ Common key ids: `"q"`, `"<Up>"`, `"<Down>"`, `"<Left>"`, `"<Right>"`,
 | `demo` | `examples/demo.cpp` | Paragraph, List, BarChart, Gauge — animated |
 | `demo2` | `examples/demo2.cpp` | Plot + Table laid out with Grid |
 | `demo3` | `examples/demo3.cpp` | Tabs switching between Sparkline, StackedBarChart, PieChart, Tree, StyleParser |
+| `demo_mouse` | `examples/demo_mouse.cpp` | 4-panel 2×2 grid; mouse focus, click-to-select, scroll wheel |
+| `demo_mouse2` | `examples/demo_mouse2.cpp` | Same 4 panels with [+] expand-to-fullscreen and tab bar navigation |
 
 ---
 
