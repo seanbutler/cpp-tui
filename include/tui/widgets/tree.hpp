@@ -44,6 +44,16 @@ public:
     void scrollBottom()   { selectedRow_ = static_cast<int>(rows_.size()) - 1; }
     void scrollAmount(int delta);
 
+    // Select by absolute visible-row offset from the top of the widget content.
+    // Used for mouse click-to-select.
+    void selectVisibleRow(int visibleOffset) {
+        int abs = topRow_ + visibleOffset;
+        int n   = static_cast<int>(rows_.size());
+        selectedRow_ = std::clamp(abs, 0, std::max(0, n - 1));
+    }
+
+    int topRow() const { return topRow_; }
+
     // Expand / collapse the selected node.
     void expand();
     void collapse();

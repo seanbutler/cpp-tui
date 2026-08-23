@@ -139,10 +139,15 @@ std::shared_ptr<EventChannel> pollEvents() {
                     e.type    = EventType::Mouse;
                     e.mouse.x = me.x;
                     e.mouse.y = me.y;
-                    if (me.bstate & BUTTON1_CLICKED)      e.id = "<MouseLeft>";
-                    else if (me.bstate & BUTTON3_CLICKED) e.id = "<MouseRight>";
-                    else if (me.bstate & BUTTON2_CLICKED) e.id = "<MouseMiddle>";
+                    e.mouse.drag = (me.bstate & REPORT_MOUSE_POSITION) != 0;
+
+                    if      (me.bstate & BUTTON1_CLICKED)  e.id = "<MouseLeft>";
+                    else if (me.bstate & BUTTON3_CLICKED)  e.id = "<MouseRight>";
+                    else if (me.bstate & BUTTON2_CLICKED)  e.id = "<MouseMiddle>";
+                    else if (me.bstate & BUTTON4_PRESSED)  e.id = "<MouseWheelUp>";
+                    else if (me.bstate & BUTTON5_PRESSED)  e.id = "<MouseWheelDown>";
                     else e.id = "<Mouse>";
+
                     ch->push(e);
                 }
                 continue;

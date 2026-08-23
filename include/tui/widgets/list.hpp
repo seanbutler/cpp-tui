@@ -27,6 +27,15 @@ public:
     void scrollPageDown();
     void scrollAmount(int delta);
 
+    // Select by absolute visible-row offset from the top of the widget content.
+    void selectVisibleRow(int visibleOffset) {
+        int abs = topRow_ + visibleOffset;
+        int n   = static_cast<int>(rows.size());
+        selectedRow = std::clamp(abs, 0, std::max(0, n - 1));
+    }
+
+    int topRow() const { return topRow_; }
+
 private:
     int topRow_ = 0;  // index of the first visible row
 };
