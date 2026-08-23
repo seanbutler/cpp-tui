@@ -176,6 +176,12 @@ int main() {
                         if (visibleOffset >= 0)
                             tree.selectVisibleRow(visibleOffset);
                     }
+                    // On Table: clicking a visible row selects it.
+                    if (focused == 3) {
+                        int visibleOffset = e.mouse.y - table.inner.min.y;
+                        if (visibleOffset >= 0)
+                            table.selectVisibleRow(visibleOffset);
+                    }
                 }
 
                 // Scroll wheel — applies to whichever pane the cursor is over.
@@ -183,11 +189,13 @@ int main() {
                     int target = (hit >= 0) ? hit : focused;
                     if (target == 0) list.scrollUp();
                     if (target == 2) tree.scrollUp();
+                    if (target == 3) table.scrollUp();
                 }
                 if (e.id == "<MouseWheelDown>") {
                     int target = (hit >= 0) ? hit : focused;
                     if (target == 0) list.scrollDown();
                     if (target == 2) tree.scrollDown();
+                    if (target == 3) table.scrollDown();
                 }
             }
 
@@ -211,10 +219,12 @@ int main() {
                 if (id == "<Up>") {
                     if (focused == 0) list.scrollUp();
                     if (focused == 2) tree.scrollUp();
+                    if (focused == 3) table.scrollUp();
                 }
                 if (id == "<Down>") {
                     if (focused == 0) list.scrollDown();
                     if (focused == 2) tree.scrollDown();
+                    if (focused == 3) table.scrollDown();
                 }
                 if (id == "<Enter>" && focused == 2) {
                     tree.toggleExpand();
