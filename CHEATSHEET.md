@@ -129,6 +129,11 @@ b.barWidth = 3;
 b.barGap   = 1;
 b.maxVal   = 0.0;   // 0 = auto-scale
 b.numFormatter = [](double v) { return std::to_string((int)v); };
+
+// Per-bar colour/style overrides (cycle through Theme defaults if not set).
+b.barColors   = {tui::ColorGreen, tui::ColorYellow};  // vector<Color>
+b.labelStyles = {tui::newStyle(tui::ColorWhite)};      // vector<Style>
+b.numStyles   = {tui::newStyle(tui::ColorWhite, tui::ColorClear, tui::ModifierBold)};
 ```
 
 ### Gauge
@@ -161,7 +166,22 @@ t.rows         = {
 };
 t.columnWidths = {10, 6};  // optional; auto-split if empty
 t.rowSeparator = true;
-t.rowStyles[0] = tui::newStyle(tui::ColorCyan, tui::ColorClear, tui::ModifierBold);
+
+// Row styling.
+t.textStyle        = tui::newStyle(tui::ColorWhite);           // default row style
+t.selectedRowStyle = tui::newStyle(tui::ColorBlack, tui::ColorCyan); // highlighted row
+t.rowStyles[0]     = tui::newStyle(tui::ColorCyan, tui::ColorClear, tui::ModifierBold); // per-row overrides
+
+// Selection state (-1 = no selection; refers to absolute index in rows).
+t.selectedRow = -1;
+
+// Navigation.
+t.scrollUp();              // move selection up one row
+t.scrollDown();            // move selection down one row
+t.scrollTop();             // jump to first data row
+t.scrollBottom();          // jump to last data row
+t.selectVisibleRow(off);   // select by pixel offset from inner.min.y (for mouse clicks)
+int first = t.topRow();    // first currently visible data row index
 ```
 
 ### Sparkline / SparklineGroup
@@ -190,6 +210,13 @@ s.labels   = {"web1", "web2", "web3"};
 s.data     = { {3,2,1}, {5,3,2}, {2,1,4} };
 s.barWidth = 5;
 s.barGap   = 1;
+s.maxVal   = 0.0;  // 0 = auto (max of all column sums)
+s.numFormatter = [](double v) { return std::to_string((int)v); };
+
+// Per-segment colour/style overrides (cycle through Theme defaults if not set).
+s.barColors   = {tui::ColorGreen, tui::ColorYellow, tui::ColorRed};  // vector<Color>
+s.numStyles   = {tui::newStyle(tui::ColorWhite, tui::ColorClear, tui::ModifierBold)};
+s.labelStyles = {tui::newStyle(tui::ColorWhite)};
 ```
 
 ### TabPane
