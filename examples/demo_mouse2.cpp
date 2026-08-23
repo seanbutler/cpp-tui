@@ -296,8 +296,9 @@ int main() {
                             }
                         }
                     } else {
-                        // Collapse button.
-                        if (hitBtn(mx, my, collapsePos(cols))) {
+                        // Collapse button — either in the tab bar or on the panel border.
+                        if (hitBtn(mx, my, collapsePos(cols)) ||
+                            hitBtn(mx, my, expandPos(panels[active]))) {
                             collapse();
                         }
                         // Tab bar — detect which tab was clicked.
