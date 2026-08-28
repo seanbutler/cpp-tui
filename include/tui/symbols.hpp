@@ -12,6 +12,11 @@ constexpr char32_t TOP_RIGHT       = U'┐';
 constexpr char32_t BOTTOM_LEFT     = U'└';
 constexpr char32_t BOTTOM_RIGHT    = U'┘';
 
+// constexpr char32_t ANGLED_TOP_LEFT     = U'╱';
+// constexpr char32_t ANGLED_TOP_RIGHT    = U'╲';
+// constexpr char32_t ANGLED_BOTTOM_LEFT  = U'╲';
+// constexpr char32_t ANGLED_BOTTOM_RIGHT = U'╱';
+
 // Special indicator characters.
 constexpr char32_t DOT        = U'•';
 constexpr char32_t ELLIPSES   = U'…';

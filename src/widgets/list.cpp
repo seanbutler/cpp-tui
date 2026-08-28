@@ -6,7 +6,7 @@ namespace tui::widgets {
 
 List::List() {
     textStyle        = Theme.list.text;
-    selectedRowStyle = Theme.list.text;
+    selectedRowStyle = Theme.list.selected;
 }
 
 void List::scrollAmount(int delta) {

@@ -26,7 +26,8 @@ struct ParagraphTheme {
 };
 
 struct ListTheme {
-    Style text = newStyle(ColorWhite);
+    Style text     = newStyle(ColorWhite);
+    Style selected = newStyle(ColorWhite);
 };
 
 struct BarChartTheme {
