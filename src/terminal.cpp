@@ -53,6 +53,7 @@ static attr_t toNcursesAttr(Modifier mod) {
     if (mod & ModifierBold)      a |= A_BOLD;
     if (mod & ModifierUnderline) a |= A_UNDERLINE;
     if (mod & ModifierReverse)   a |= A_REVERSE;
+    if (mod & ModifierDim)       a |= A_DIM;
     return a;
 }
 

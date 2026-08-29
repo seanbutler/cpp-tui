@@ -21,6 +21,7 @@ static const std::unordered_map<std::string, Modifier> MODIFIER_MAP = {
     {"bold",      ModifierBold},
     {"underline", ModifierUnderline},
     {"reverse",   ModifierReverse},
+    {"dim",       ModifierDim},
 };
 
 // Parse "fg:red,mod:bold,bg:blue" into a Style, falling back to defaultStyle.

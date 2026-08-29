@@ -24,6 +24,7 @@ constexpr Modifier ModifierClear     = 0;
 constexpr Modifier ModifierBold      = 1 << 0;
 constexpr Modifier ModifierUnderline = 1 << 1;
 constexpr Modifier ModifierReverse   = 1 << 2;
+constexpr Modifier ModifierDim       = 1 << 3;
 
 // Style describes the visual appearance of a terminal cell.
 struct Style {
