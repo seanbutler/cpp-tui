@@ -33,13 +33,7 @@ void TabPane::draw(Buffer& buf) {
         buf.setString(name.substr(0, len), style, {x, inner.min.y});
         x += len;
 
-        // Separator between tabs (not after the last one).
-        if (i < static_cast<int>(tabNames.size()) - 1 && x < inner.max.x) {
-            buf.setCell(newCell(VERTICAL_LINE, newStyle(ColorWhite)), {x, inner.min.y});
-            ++x;
-        }
-
-        x += 1;  // 1-space gap between separator and next tab name
+        x += 2;  // gap between tabs
     }
 }
 
